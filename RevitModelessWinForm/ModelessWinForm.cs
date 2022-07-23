@@ -15,13 +15,28 @@ namespace RevitModelessWinForm
     public partial class ModelessWinForm : System.Windows.Forms.Form
     {
         private ExternalEvent m_ExEvent;
-        private BasicExternalEvent m_Handler;
+        private BasicExEventHandler m_Handler;
 
-        public ModelessWinForm(ExternalEvent exEvent, BasicExternalEvent handler)
+        private ExternalEvent m_ExEvent_CreateWalls;
+        private CreateWallsExEventHandler m_Handler_CreateWalls;
+
+        private ExternalEvent m_ExEvent_BatchWalls;
+        private BatchWallsExEventHandler m_Handler_BatchWalls;
+
+        public ModelessWinForm(ExternalEvent exEvent, BasicExEventHandler handler, 
+            ExternalEvent exEvent_CreateWalls, CreateWallsExEventHandler handler_CreateWalls,
+            ExternalEvent exEvent_BatchWalls, BatchWallsExEventHandler handler_BatchWalls)
         {
             InitializeComponent();
+
             m_ExEvent = exEvent;
             m_Handler = handler;
+
+            m_ExEvent_CreateWalls = exEvent_CreateWalls;
+            m_Handler_CreateWalls = handler_CreateWalls;
+
+            m_ExEvent_BatchWalls = exEvent_BatchWalls;
+            m_Handler_BatchWalls = handler_BatchWalls;
         }
 
         private void ModelessWinForm_Load(object sender, EventArgs e)
@@ -36,6 +51,14 @@ namespace RevitModelessWinForm
             m_ExEvent = null;
             m_Handler = null;
 
+            m_ExEvent_CreateWalls.Dispose();
+            m_ExEvent_CreateWalls = null;
+            m_Handler_CreateWalls = null;
+
+            m_ExEvent_BatchWalls.Dispose();
+            m_ExEvent_BatchWalls = null;
+            m_Handler_BatchWalls = null;
+
             //You have to call the base class
             base.OnFormClosed(e);
         }
@@ -49,6 +72,17 @@ namespace RevitModelessWinForm
         private void button1_Click(object sender, EventArgs e)
         {
             m_ExEvent.Raise();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            m_ExEvent_CreateWalls.Raise();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            m_ExEvent_BatchWalls.Raise();
+
         }
     }
 }

@@ -46,8 +46,6 @@ namespace RevitModelessWinForm
 
             return Result.Succeeded;
 
-
-
         }
 
         public void ShowModelessWinForm(UIApplication uiapp)
@@ -56,13 +54,21 @@ namespace RevitModelessWinForm
             if(m_ModelessWinForm == null || m_ModelessWinForm.IsDisposed)
             {
                 //Create a new event handler to handle the request that will be sent from UI (ExternalEvent.Raise())
-                BasicExternalEvent handler = new BasicExternalEvent();
+                BasicExEventHandler handler = new BasicExEventHandler();
+                CreateWallsExEventHandler handler_CreateWalls = new CreateWallsExEventHandler();
+                BatchWallsExEventHandler handler_BatchWalls = new BatchWallsExEventHandler();
+
 
                 //Initialize an External Event to pass it to the UI
                 ExternalEvent exEvent = ExternalEvent.Create(handler);
+                ExternalEvent exEvent_CreateWalls = ExternalEvent.Create(handler_CreateWalls);
+                ExternalEvent exEvent_BatchWalls = ExternalEvent.Create(handler_BatchWalls);
+
 
                 //Pass the instances to UI -- It is extremely important that UI is in charge of disposing these objects while closing
-                m_ModelessWinForm = new ModelessWinForm(exEvent, handler);
+                m_ModelessWinForm = new ModelessWinForm(exEvent, handler, 
+                    exEvent_CreateWalls, handler_CreateWalls, 
+                    exEvent_BatchWalls, handler_BatchWalls);
                 m_ModelessWinForm.Show();
             }
         }

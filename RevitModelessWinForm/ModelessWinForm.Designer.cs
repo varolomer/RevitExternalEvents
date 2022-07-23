@@ -34,6 +34,7 @@ namespace RevitModelessWinForm
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // button1
@@ -42,7 +43,7 @@ namespace RevitModelessWinForm
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(246, 37);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Button1";
+            this.button1.Text = "Count Walls";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -52,8 +53,9 @@ namespace RevitModelessWinForm
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(246, 37);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Button2";
+            this.button2.Text = "Create Random Walls";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -61,8 +63,9 @@ namespace RevitModelessWinForm
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(246, 37);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Button3";
+            this.button3.Text = "Batch Walls";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -70,7 +73,7 @@ namespace RevitModelessWinForm
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(246, 37);
             this.button4.TabIndex = 3;
-            this.button4.Text = "Button4";
+            this.button4.Text = "Debug";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // closeButton
@@ -83,11 +86,19 @@ namespace RevitModelessWinForm
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(46, 300);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(246, 23);
+            this.progressBar.TabIndex = 5;
+            // 
             // ModelessWinForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 312);
+            this.ClientSize = new System.Drawing.Size(350, 335);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -109,5 +120,6 @@ namespace RevitModelessWinForm
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }

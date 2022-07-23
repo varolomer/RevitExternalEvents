@@ -9,7 +9,7 @@ using Autodesk.Revit.UI;
 
 namespace RevitModelessWinForm
 {
-    public class BasicExternalEvent : IExternalEventHandler
+    public class BasicExEventHandler : IExternalEventHandler
     {
         public void Execute(UIApplication app)
         {
@@ -21,12 +21,12 @@ namespace RevitModelessWinForm
                 .WhereElementIsNotElementType()
                 .ToList();
             
-            TaskDialog.Show("Basic External Event", $"{elements.Count.ToString()} wall instances exist in the documents.");
+            TaskDialog.Show("Basic External EventHandler", $"{elements.Count.ToString()} wall instances exist in the documents.");
         }
 
         public string GetName()
         {
-            return "Basic External Event";
+            return "Basic External EventHandler";
         }
     }
 }
