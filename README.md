@@ -10,7 +10,7 @@ This is a tutorial repository which shows how the Revit External Events work in 
 ![alt text](https://github.com/varolomer/RevitExternalEvents/blob/master/RevitModelessWinForm/Assets/Github/BatchWalls.gif)
 
 ## Why External Events?
-Revit external events gives us the functionality to have Modeless Forms in Revit. Normally, when we use the commands that implement IExternalCommand, the command has a procedural flow and then returns Result object immediately after its job is done. However, with raising and handling external events we have much more flexibility on how our program and UI works.
+Revit external events gives us the the chance to drive revit from an external process and the chance to have Modeless Forms. Normally, when we use the commands that implement IExternalCommand, the command has a procedural flow and then returns Result object immediately after its job is done. However, with raising and handling external events we have much more flexibility on how our program and UI works.
 
 ## Limitations
 Due to the reason that the library is writtten for beginners and in a very basic scenario, this way of dealing with External Events have some limitations:
