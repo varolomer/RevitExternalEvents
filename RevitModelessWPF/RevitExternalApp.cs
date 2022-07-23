@@ -52,7 +52,8 @@ namespace RevitModelessWPF
         public void ShowModelessWinForm(UIApplication uiapp)
         {
             //If there is no UI instance yet, initialize and instance and show it
-            if(m_ModelessWinForm == null || PresentationSource.FromVisual(m_ModelessWinForm).IsDisposed)
+            //var presSource_Window = PresentationSource.FromVisual(m_ModelessWinForm);
+            if (m_ModelessWinForm == null || PresentationSource.FromVisual(m_ModelessWinForm) == null)
             {
                 //Create a new event handler to handle the request that will be sent from UI (ExternalEvent.Raise())
                 BasicExEventHandler handler = new BasicExEventHandler();
@@ -70,6 +71,7 @@ namespace RevitModelessWPF
                 m_ModelessWinForm = new ModelessWPF(exEvent, handler, 
                     exEvent_CreateWalls, handler_CreateWalls, 
                     exEvent_BatchWalls, handler_BatchWalls);
+
                 m_ModelessWinForm.Show();
             }
         }
