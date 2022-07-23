@@ -80,6 +80,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Github\Banner.png" />
+    <Content Include="Assets\Github\BatchWalls.gif" />
+    <Content Include="Assets\Github\CreateRandomWall.gif" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\iconModelessWinForm.png" />
