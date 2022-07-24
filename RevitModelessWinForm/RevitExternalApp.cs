@@ -39,10 +39,10 @@ namespace RevitModelessWinForm
 
             string path = Assembly.GetExecutingAssembly().Location;
 
-            PushButtonData buttonModelessWinForm = new PushButtonData("ModelessWinForm", "ModelessWinForm", path, "RevitModelessWinForm.RevitExternalCommand");
-            BitmapImage iconModelessWinForm = new BitmapImage(new Uri("pack://application:,,,/RevitModelessWinForm;component/Assets/iconModelessWinForm.png"));
-            PushButton pushButton_ModelessWinForm = panelHelper.AddItem(buttonModelessWinForm) as PushButton;
-            pushButton_ModelessWinForm.LargeImage = iconModelessWinForm;
+            PushButtonData buttonModelessForm = new PushButtonData("ModelessWinForm", "ModelessWinForm", path, "RevitModelessWinForm.RevitExternalCommand");
+            BitmapImage iconModelessForm = new BitmapImage(new Uri("pack://application:,,,/RevitModelessWinForm;component/Assets/iconModelessForm.png"));
+            PushButton pushButton_ModelessForm = panelHelper.AddItem(buttonModelessForm) as PushButton;
+            pushButton_ModelessForm.LargeImage = iconModelessForm;
 
             return Result.Succeeded;
 
